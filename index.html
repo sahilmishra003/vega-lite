@@ -43,7 +43,7 @@
         {
           vconcat: [
             {
-              width: 420,
+              width: 500,
               height: 420,
               mark: { type: "bar", tooltip: true },
               title: "Rep vs Total Bar Chart",
@@ -62,6 +62,7 @@
               }
             },
             {
+              width: 500,
               mark: { type: "arc" },
               title: "Pie Chart Showing Items and Units",
               encoding: {
@@ -71,7 +72,7 @@
               layer:
                 [{
 
-                  mark: { type: "arc", "outerRadius": 180, tooltip: true }
+                  mark: { type: "arc", "outerRadius": 250, tooltip: true }
                 }
                 ]
 
@@ -81,7 +82,7 @@
         {
           layer: [
             {
-              width: 420,
+              width: 500,
               height: 420,
               mark: { type: "bar", tooltip: true },
               title: "Histogram of the Units",
@@ -109,9 +110,9 @@
         {
           vconcat: [
             {
-              width: 420,
+              width: 500,
               height: 420,
-              mark: { type: "point", tooltip: true },
+              mark: { type: "point", tooltip: true, "point": {"color": "red"}},
               title: "Correlation between Units and Unit Cost",
               encoding: {
                 y: { field: "Units", type: "quantitative" },
@@ -122,7 +123,7 @@
               }
             },
             {
-              width: 420,
+              width: 500,
               height: 420,
               mark: { type: "line", tooltip: true },
               title: "Line Graph of variation of Total over time",
