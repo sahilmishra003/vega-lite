@@ -112,7 +112,7 @@
             {
               width: 500,
               height: 420,
-              mark: { type: "point", tooltip: true, "point": {"color": "red"}},
+              mark: { type: "point", tooltip: true },
               title: "Correlation between Units and Unit Cost",
               encoding: {
                 y: { field: "Units", type: "quantitative" },
@@ -125,7 +125,7 @@
             {
               width: 500,
               height: 420,
-              mark: { type: "line", tooltip: true },
+              mark: { type: "line", tooltip: true, point: { color: "blue" } },
               title: "Line Graph of variation of Total over time",
               encoding: {
                 y: { field: "Total", aggregate: 'sum' },
