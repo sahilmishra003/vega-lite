@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+  <style>
+    .center {
+      text-align: center;
+    }
+  </style>
+  <title>2023EEZ8354 - Sahil Mishra - Vega-Lite Assignment</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+
+<body>
+  <h1 class="center">Office Supply Sales Data Visualization (Hovering Enabled)</h1>
+  <div id="vis"></div>
+
+  <script type="text/javascript">
+  </script>
+
+  <script type="text/javascript">
+
+    var yourVlSpec = {
+      $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Office Supply Sales Data Visualization",
+      "data": { "url": "https://raw.githubusercontent.com/sahilmishra003/vega-lite/main/HW_Excel.csv" },
+      hconcat: [
+        {
+          vconcat: [
+            {
+              mark: { type: "bar", tooltip: true},
+              title: "Rep vs Total Bar Chart",
+              encoding: {
+                y: { field: 'Rep', type: 'nominal', sort: "-x" },
+                x: {
+                  field: 'Total',
+                  aggregate: 'sum',
+                  type: 'quantitative',
+                  format: '.2f',
+                  axis: {
+                    title: 'Total'
+                  }
+                },
+                color: { value: "green" }
+              }
+            },
+            {
+
+              mark: { type: "arc"},
+              title: "Pie Chart Showing Items and Units",
+              encoding: {
+                theta: { field: "Units", type: "quantitative", aggregate: "sum", stack: true },
+                color: { field: "Item", type: "nominal" }
+              },
+              layer:
+                [{
+                  mark: { type: "arc", "outerRadius": 150, tooltip: true}
+                }
+                ]
+
+            },
+          ]
+        },
+        {
+          layer: [
+            {
+              mark: {type: "bar", tooltip: true},
+              title: "Histogram of the Units",
+              encoding: {
+                x: {
+                  bin: true,
+                  field: "Units",
+                  step: 200
+                },
+                y: { aggregate: "count", axis: { orient: "left", title: "Count of Records" } },
+
+                color: { value: "brown" }
+
+              }
+            },
+            {
+              mark: {type: "rule", tooltip: true},
+              encoding: {
+                y: { field: "Units", aggregate: "mean", axis: { orient: "right" } },
+              }
+            }
+          ],
+          resolve: { scale: { y: "independent" } }
+        },
+        {
+          vconcat: [
+            {
+              mark: {type: "point", tooltip: true},
+              title: "Correlation between Units and Unit Cost",
+              encoding: {
+                y: { field: "Units", type: "quantitative" },
+                x: { field: "UnitCost", type: "quantitative", title: "Unit Cost" },
+                color: { field: "Item", type: "nominal" }
+              }
+            },
+            {
+              mark: {type: "line", tooltip: true},
+              title: "Line Graph of variation of Total over time",
+              encoding: {
+                y: { field: "Total", aggregate: 'sum' },
+                x: { field: "OrderDate", timeUnit: "month" },
+                color: { value: "violet" }
+              }
+            }
+          ]
+        },
+      ]
+    };
+    vegaEmbed("#vis", yourVlSpec);
+  </script>
+</body>
+
+</html>
