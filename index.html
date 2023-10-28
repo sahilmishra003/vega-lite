@@ -3,9 +3,19 @@
 
 <head>
   <style>
-    .center {
+    .center-h1 {
       text-align: center;
       font-size: 70px;
+    }
+
+    .center-h2 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .center-h2 {
+      text-align: center;
+      font-size: 40px;
     }
   </style>
   <title>2023EEZ8354 - Sahil Mishra - Vega-Lite Assignment</title>
@@ -15,7 +25,9 @@
 </head>
 
 <body>
-  <h1 class="center">Office Supply Sales Data Visualization</h1>
+  <h1 class="center-h1">Office Supply Sales Data Visualization</h1>
+  <h2 class="center-h2">Entry Number: 2023EEZ8354</h2>
+  <h2 class="center-h2">Name: Sahil Mishra</h2>
   <div id="vis"></div>
 
   <script type="text/javascript">
@@ -102,11 +114,11 @@
               mark: { type: "point", tooltip: true },
               title: "Correlation between Units and Unit Cost",
               encoding: {
-                y: { field: "Units", type: "quantitative"},
-                x: { field: "UnitCost", type: "quantitative", title: "Unit Cost"},
+                y: { field: "Units", type: "quantitative" },
+                x: { field: "UnitCost", type: "quantitative", title: "Unit Cost" },
                 color: { field: "Item", type: "nominal" },
-                fill: { field: "Item", type: "nominal", legend:null},
-                size: {value: "100"}
+                fill: { field: "Item", type: "nominal", legend: null },
+                size: { value: "100" }
               }
             },
             {
