@@ -102,9 +102,11 @@
               mark: { type: "point", tooltip: true },
               title: "Correlation between Units and Unit Cost",
               encoding: {
-                y: { field: "Units", type: "quantitative" },
-                x: { field: "UnitCost", type: "quantitative", title: "Unit Cost" },
-                color: { field: "Item", type: "nominal" }
+                y: { field: "Units", type: "quantitative"},
+                x: { field: "UnitCost", type: "quantitative", title: "Unit Cost"},
+                color: { field: "Item", type: "nominal" },
+                fill: { field: "Item", type: "nominal", legend:null},
+                size: {value: "100"}
               }
             },
             {
